@@ -4,107 +4,282 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Alien Messenger</title>
+  <link rel="icon" href="alien-messenger-logo-rounded.png" type="image/png" />
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(to right, #eef2f3, #8e9eab);
+      background: linear-gradient(to right, #fff8f2, #fff1e6);
       color: #222;
     }
 
     .hero {
       text-align: center;
-      padding: 80px 20px 40px;
-      background-color: white;
+      padding: 60px 20px 40px;
+      background-color: #fff;
     }
 
-    .hero h1 {
-      font-size: 3rem;
-      margin-bottom: 20px;
-      color: #4B0082;
+    .hero-header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      width: 80px;
+      height: 80px;
+      border-radius: 16px;
+    }
+
+    .hero-title {
+      font-size: 3.5rem;
+      font-weight: 800;
+      color: #d84315;
+      font-family: 'Segoe UI', sans-serif;
+      letter-spacing: 1px;
+      text-transform: uppercase;
     }
 
     .hero p {
       font-size: 1.2rem;
-      max-width: 600px;
-      margin: 0 auto 30px;
-      line-height: 1.6;
-    }
-
-    .cta-button {
-      background-color: #4B0082;
-      color: white;
-      padding: 14px 28px;
-      font-size: 1.1rem;
-      border: none;
-      border-radius: 6px;
-      text-decoration: none;
-      transition: background-color 0.3s ease;
-    }
-
-    .cta-button:hover {
-      background-color: #36005e;
+      margin: 20px auto;
+      line-height: 1.5;
+      max-width: none;
     }
 
     .section {
-      max-width: 800px;
-      margin: 60px auto;
+      max-width: 1100px;
+      margin: 40px auto;
       padding: 0 20px;
     }
 
     .section h2 {
       font-size: 2rem;
-      margin-bottom: 20px;
-      color: #333366;
+      margin-bottom: 30px;
+      color: #e65100;
       text-align: center;
     }
 
-    .section ol {
+    .how-it-works-horizontal {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      flex-wrap: nowrap;
+      position: relative;
+      margin-top: 60px;
+    }
+
+    .step-card {
+      flex: 1;
+      min-width: 140px;
+      background-color: #fffaf4;
+      padding: 40px 12px 20px;
+      border: 1px solid #f5c9b0;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.04);
+      position: relative;
+    }
+
+    .step-number {
+      width: 40px;
+      height: 40px;
+      background-color: #ff7043;
+      color: white;
+      font-weight: bold;
+      border-radius: 50%;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .arrow {
+      font-size: 1.8rem;
+      color: #ccc;
+      margin-top: 20px;
+    }
+
+    .features-row, .testimonial-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      margin-top: 40px;
+      flex-wrap: nowrap;
+    }
+
+    .feature-box, .testimonial-box {
+      flex: 1;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      text-align: center;
+    }
+
+    .feature-box h3 {
+      color: #e65100;
+      margin-bottom: 10px;
+    }
+
+    .feature-box p, .testimonial-box {
+      font-size: 1rem;
+      color: #333;
+    }
+
+    .testimonial-box {
+      background-color: #fffefc;
+      border: 1px solid #ffe0b2;
+      font-style: italic;
+    }
+
+    .cta-button {
+      display: block;
+      background-color: #ff7043;
+      color: white;
+      padding: 14px 28px;
       font-size: 1.1rem;
-      line-height: 1.6;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      margin: 50px auto 0;
+      max-width: 200px;
+      text-align: center;
+      transition: background-color 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background-color: #e64a19;
+    }
+
+    .questions-box {
+      background-color: #fff0e3;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 700px;
+      margin: 50px auto 20px;
+      text-align: center;
+      font-size: 1rem;
+      color: #444;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.03);
     }
 
     footer {
       text-align: center;
       font-size: 0.9rem;
-      color: #555;
-      padding: 40px 20px;
-      border-top: 1px solid #ccc;
+      color: #777;
+      padding: 20px;
+      border-top: 1px solid #ddd;
     }
 
     footer a {
-      color: #4B0082;
+      color: #ff7043;
       text-decoration: none;
     }
 
     footer a:hover {
       text-decoration: underline;
     }
+
+    @media (max-width: 900px) {
+      .features-row,
+      .testimonial-row,
+      .how-it-works-horizontal {
+        flex-direction: column;
+        align-items: center;
+      }
+      .arrow {
+        display: none;
+      }
+    }
   </style>
 </head>
 <body>
 
   <div class="hero">
-    <h1>Alien Messenger 👽</h1>
-    <p><strong>Automate private outreach on Reddit with AI-enhanced replies.</strong></p>
-    <p>Alien Messenger watches relevant threads and auto-sends a DM with a high-quality response — designed to help you engage at scale while staying personal. You take over once someone replies.</p>
-    <a class="cta-button" href="https://preview--reddi-messenger-bot.lovable.app/">Get Started</a>
+    <div class="hero-header">
+      <img src="alien-messenger-logo-rounded.png" alt="Alien Messenger Logo" class="logo" />
+      <div class="hero-title">Alien Messenger</div>
+    </div>
+    <p><strong>Auto-reply to Reddit posts with smart DMs that convert.</strong></p>
+    <p>Alien Messenger monitors the right threads, sends helpful messages, and delivers warm leads — automatically.</p>
   </div>
 
   <div class="section">
     <h2>How It Works</h2>
-    <ol>
-      <li>Log in with your Reddit account</li>
-      <li>Set your keywords and target subreddits</li>
-      <li>Craft a tailored message to respond with</li>
-      <li>Alien Messenger watches and replies for you</li>
-      <li>Jump in when someone responds</li>
-    </ol>
+    <div class="how-it-works-horizontal">
+      <div class="step-card">
+        <div class="step-number">1</div>
+        <div>Log in with Reddit</div>
+      </div>
+      <div class="arrow">→</div>
+      <div class="step-card">
+        <div class="step-number">2</div>
+        <div>Set keywords & subs</div>
+      </div>
+      <div class="arrow">→</div>
+      <div class="step-card">
+        <div class="step-number">3</div>
+        <div>Write your message</div>
+      </div>
+      <div class="arrow">→</div>
+      <div class="step-card">
+        <div class="step-number">4</div>
+        <div>We auto-DM for you</div>
+      </div>
+      <div class="arrow">→</div>
+      <div class="step-card">
+        <div class="step-number">5</div>
+        <div>You reply & close</div>
+      </div>
+    </div>
+
+    <div class="features-row">
+      <div class="feature-box">
+        <h3>Keyword Monitoring</h3>
+        <p>Track specific phrases across target subreddits in real-time.</p>
+      </div>
+      <div class="feature-box">
+        <h3>Auto-DM Assistant</h3>
+        <p>Send custom messages to new posts without lifting a finger.</p>
+      </div>
+      <div class="feature-box">
+        <h3>Inbox Alerts</h3>
+        <p>Be the first to follow up when leads respond to your message.</p>
+      </div>
+    </div>
+
+    <h2>What Users Are Saying</h2>
+    <div class="testimonial-row">
+      <div class="testimonial-box">
+        "Alien Messenger helped me reach real leads who actually wanted to engage — not just drive-by lurkers."
+      </div>
+      <div class="testimonial-box">
+        "The AI-generated messages feel natural and personalized — I’ve had better conversations than ever."
+      </div>
+      <div class="testimonial-box">
+        "Within a week, I had 3 warm leads reach out — and I didn’t even have to check Reddit manually."
+      </div>
+    </div>
+
+    <a class="cta-button" href="https://preview--reddi-messenger-bot.lovable.app/">Get Started</a>
+  </div>
+
+  <div class="questions-box">
+    Questions? Reach out to us at <a href="mailto:ask@alienmessenger.com">ask@alienmessenger.com</a>
   </div>
 
   <footer>
     <p>Built by HBS LTV Spring '25 Group 22. Not affiliated with Reddit.</p>
-    <p>Questions? Contact: <a href="mailto:ask@alienmessenger.com">ask@alienmessenger.com</a></p>
   </footer>
 
 </body>
