@@ -75,6 +75,7 @@
     .step-card {
       flex: 1;
       min-width: 140px;
+      min-height: 140px;
       background-color: #fffaf4;
       padding: 40px 12px 20px;
       border: 1px solid #f5c9b0;
@@ -82,6 +83,9 @@
       text-align: center;
       box-shadow: 0 2px 5px rgba(0,0,0,0.04);
       position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .step-number {
@@ -142,8 +146,15 @@
       font-style: italic;
     }
 
-    .cta-button {
-      display: block;
+    .cta-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 50px;
+    }
+
+    .cta-button, .video-button {
       background-color: #ff7043;
       color: white;
       padding: 14px 28px;
@@ -151,14 +162,37 @@
       border: none;
       border-radius: 8px;
       text-decoration: none;
-      margin: 50px auto 0;
-      max-width: 200px;
-      text-align: center;
+      cursor: pointer;
       transition: background-color 0.3s ease;
+    }
+
+    .video-button {
+      background-color: #fff;
+      color: #ff7043;
+      border: 2px solid #ff7043;
     }
 
     .cta-button:hover {
       background-color: #e64a19;
+    }
+
+    .video-button:hover {
+      background-color: #fff5f0;
+    }
+
+    .video-container {
+      display: none;
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .video-container iframe {
+      width: 100%;
+      max-width: 800px;
+      height: 450px;
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
 
     .questions-box {
@@ -193,7 +227,8 @@
     @media (max-width: 900px) {
       .features-row,
       .testimonial-row,
-      .how-it-works-horizontal {
+      .how-it-works-horizontal,
+      .cta-container {
         flex-direction: column;
         align-items: center;
       }
@@ -239,7 +274,7 @@
       <div class="arrow">→</div>
       <div class="step-card">
         <div class="step-number">5</div>
-        <div>You reply & close on quality leads</div>
+        <div>You reply to & close on quality leads</div>
       </div>
     </div>
 
@@ -271,7 +306,15 @@
       </div>
     </div>
 
-    <a class="cta-button" href="https://preview--reddi-messenger-bot.lovable.app/">Get Started</a>
+    <div class="cta-container">
+      <a class="cta-button" href="https://preview--reddi-messenger-bot.lovable.app/">Get Started</a>
+      <button class="video-button" onclick="toggleVideo()">Video Intro</button>
+    </div>
+
+    <div id="video" class="video-container">
+      <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_HERE" allowfullscreen></iframe>
+    </div>
+
   </div>
 
   <div class="questions-box">
@@ -282,5 +325,16 @@
     <p>Built by HBS LTV Spring '25 Group 22. Not affiliated with Reddit.</p>
   </footer>
 
+  <script>
+    function toggleVideo() {
+      const video = document.getElementById('video');
+      if (video.style.display === 'block') {
+        video.style.display = 'none';
+      } else {
+        video.style.display = 'block';
+        video.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  </script>
 </body>
 </html>
